@@ -12,7 +12,17 @@ module.exports = {
         port: 3000
     },
     plugins: [
-        new HtmlWebpackPlugin(),
+        new HtmlWebpackPlugin({
+            template: 'src/index.html'
+        }),
         new CleanWebpackPlugin()
     ],
+    module: {
+        rules: [
+            {
+                test: /\.css$/i,
+                use: ['style-loader', 'css-loader'],
+            },
+        ],
+    },
 }
